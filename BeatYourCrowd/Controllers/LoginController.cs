@@ -25,8 +25,13 @@ namespace BeatYourCrowd.Controllers
 
         public ActionResult Callback(string code)
         {
-            ViewBag.Code = code;
+            System.Web.HttpContext.Current.Session.Add("code", code);
+            return Redirect("/Player/Index");
+        }
 
+        public ActionResult Logout()
+        {
+            System.Web.HttpContext.Current.Session.Remove("code");
             return Redirect("/Home/Index");
         }
     }

@@ -21,7 +21,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                    @if (!String.IsNullOrEmpty(System.Web.HttpContext.Current.Session["code"] as string))
+                    {
+                        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                    }
                 </ul>
             </div>
         </div>
