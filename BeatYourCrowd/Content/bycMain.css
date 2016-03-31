@@ -18,6 +18,22 @@
 }
 
 
+/*============================= player =========================*/
+
+/*
+    PLAYER SIZE	        HEIGHT	WIDTH
+    Minimum size	    80px	250px
+    Maximum size	    720px	640px
+*/
+
+#player {
+
+    height: 90vh;       /* 90% of viewport height*/
+    width: 30vw;        /* 30% of viewport width*/
+
+}
+
+
 /* ==================== animation buttons ===================== */
 
 
