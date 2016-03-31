@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using SpotifyAPI;
+
 namespace BeatYourCrowd.Controllers
 {
     public class PlayerController : Controller

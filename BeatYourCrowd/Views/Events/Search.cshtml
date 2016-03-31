@@ -1,0 +1,62 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        
+
+        @{
+            ViewBag.Title = "Search";
+        }
+
+        <h2>Search</h2>
+
+        @*@model IEnumerable<BeatYourCrowd.Models.Search>
+
+        @ViewBag.Message
+        <br />
+
+        @foreach (var item in Model)
+        {
+            @item.value;
+            <br />
+        }*@
+
+
+        @*@model BeatYourCrowd.Models.Search
+
+        @Model.item.Artists.ToString();*@
+
+        @model SpotifyAPI.Web.Models.SearchItem
+
+        <br />
+        <p><div class="fontHead">found: </div>@Model.Albums.Total</p>
+
+        <br />
+        <p><div class="fontHead">Artists: </div></p>
+        @foreach (var item in Model.Artists.Items)
+        {
+            <div class="fontSub">@item.Name.ToString() </div>
+        }
+        <br />
+        <p><div class="fontHead">Albums: </div></p>
+        @foreach (var item in Model.Albums.Items)
+        {
+            <div class="fontSub">@item.Name.ToString() </div>
+        }
+        <br />
+        <p><div class="fontHead">Tracks: </div></p>
+        @foreach (var item in Model.Tracks.Items)
+        {
+            <div class="fontSub">@item.Name.ToString()</div>
+        }
+
+
+    </div>
+</body>
+</html>
