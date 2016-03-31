@@ -7,61 +7,62 @@
     <title></title>
 </head>
 <body>
-    <div>
-        
 
-        @{
-            ViewBag.Title = "Search";
-        }
+    @{
+        ViewBag.Title = "Search";
+    }
 
-        <h2>Search</h2>
+    
+    <div @*class="container"*@>
+        <div class="row">
 
-        @*@model IEnumerable<BeatYourCrowd.Models.Search>
+            <div class="col-xs-4 col-md-4">
+                @* Player, user: lucas, playlist: irgendeine;
+                    es können auch private Playlisten abgespielt werden, wenn ID vorhanden ist. *@
+                
+                <iframe id="player" src="https://embed.spotify.com/?uri=spotify:user:1183190218:playlist:0g53anSYslUyq9RM0e7VKA" frameborder="0" allowtransparency="true"></iframe>
+            </div>
 
-        @ViewBag.Message
-        <br />
+            <div class="col-xs-8 col-md-8">
 
-        @foreach (var item in Model)
-        {
-            @item.value;
-            <br />
-        }*@
-
-
-        @*@model BeatYourCrowd.Models.Search
-
-        @Model.item.Artists.ToString();*@
-
-        @model SpotifyAPI.Web.Models.SearchItem
-
-        <br />
-        <p><div class="fontHead">found: </div>@Model.Albums.Total</p>
-
-        <br />
-        <p><div class="fontHead">Artists: </div></p>
-        @foreach (var item in Model.Artists.Items)
-        {
-            <div class="fontSub">@item.Name.ToString() </div>
-        }
-        <br />
-        <p><div class="fontHead">Albums: </div></p>
-        @foreach (var item in Model.Albums.Items)
-        {
-            <div class="fontSub">@item.Name.ToString() </div>
-        }
-        <br />
-        <p><div class="fontHead">Tracks: </div></p>
-        @foreach (var item in Model.Tracks.Items)
-        {
-            <div class="fontSub">@item.Name.ToString()</div>
-        }
+                <p>
+                    <!-- Search is your action and Events is your controller -->
+                    @using (Html.BeginForm("Search", "Events"))
+                    {
+                        @Html.TextBox("search")
+                        <input class="btn btn-1 btn-1a" type="submit" value="Search" />
+                    }
+                </p>
 
 
+                @model SpotifyAPI.Web.Models.SearchItem
+
+                <p><div class="fontHead">Artists: </div></p>
+                @foreach (var item in Model.Artists.Items)
+                {
+                    <div class="fontSub">@item.Name.ToString() </div>
+                }
+                <br />
+                <p><div class="fontHead">Albums: </div></p>
+                @foreach (var item in Model.Albums.Items)
+                {
+                    <div class="fontSub">@item.Name.ToString() </div>
+                }
+                <br />
+                <p><div class="fontHead">Tracks: </div></p>
+                @foreach (var item in Model.Tracks.Items)
+                {
+                    <div class="fontSub">@item.Name.ToString()</div>
+                }
+
+
+            </div>
+
+        </div>
     </div>
 
-    @* Player, user: lucas, playlist: irgendeine;
-        es können auch private Playlisten abgespielt werden, wenn ID vorhanden ist. *@
-    <iframe id="player" src="https://embed.spotify.com/?uri=spotify:user:1183190218:playlist:0g53anSYslUyq9RM0e7VKA" frameborder="0" allowtransparency="true"></iframe>
+    
+    
 
 </body>
 </html>

@@ -38,7 +38,7 @@ namespace BeatYourCrowd.Controllers
             ////return Redirect("/Player/Search");
             //return View(textList);
 
-            SearchItem item = _spotify.SearchItems(search, SearchType.Artist | SearchType.Album | SearchType.Track, 10);
+            SearchItem item = _spotify.SearchItems(search, SearchType.Artist | SearchType.Album | SearchType.Track, 5);
 
             return View(item);
         }
