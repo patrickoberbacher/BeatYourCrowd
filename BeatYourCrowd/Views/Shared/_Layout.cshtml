@@ -26,11 +26,11 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (!String.IsNullOrEmpty(System.Web.HttpContext.Current.Session["code"] as string))
                     {
-                        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Login1")</li>
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                        <li>@Html.ActionLink("Login", "Index", "Login1")</li>
                     }
                 </ul>
             </div>

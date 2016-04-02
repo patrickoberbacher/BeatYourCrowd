@@ -25,19 +25,6 @@ namespace BeatYourCrowd.Controllers
         {
             ViewBag.Message = "BeatYourCrowd!";
 
-            //Search eins = new Search();
-            //eins.value = "Hello BYC!";
-
-            //Search zwei = new Search();
-            //zwei.value = search;
-
-            //List<Search> textList = new List<Search>();
-            //textList.Add(eins);
-            //textList.Add(zwei);
-
-            ////return Redirect("/Player/Search");
-            //return View(textList);
-
             SearchItem item = _spotify.SearchItems(search, SearchType.Artist | SearchType.Album | SearchType.Track, 5);
 
             return View(item);
